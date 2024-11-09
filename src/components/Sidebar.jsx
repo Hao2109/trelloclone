@@ -1,11 +1,31 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { ChevronLeft, ChevronRight, Plus, X } from "react-feather";
 import { Popover } from "react-tiny-popover";
 import png1 from "~/assets/png1.png";
+import { BoardContext } from "../assets/context/BoardContext";
 
 const Sidebar = () => {
+  const blankBoard = {
+    name: "",
+    bgcolor: "#f60000",
+    item: [],
+  };
+  const [boardData, setBoardData] = useState(blankBoard);
   const [collapsed, setCollapsed] = useState(false);
   const [showpop, setShowpop] = useState(false);
+  const { allBoard, setAllBoard } = useContext(BoardContext);
+  const setActiveboard = (i) => {
+    let newBoard = { ...allBoard };
+    newBoard.active = i;
+    setAllBoard(newBoard);
+  };
+  const addBoard = () => {
+    let newB = { ...allBoard };
+    newB.boards.push(boardData);
+    setAllBoard(newB);
+    setBoardData(blankBoard);
+    setShowpop(!showpop);
+  };
   return (
     <div
       className={`bg-blue-400 transition-all duration-100 flex-shrink-0 text-white h-[calc(100vh-3rem)] border-b border-b-slate-100  ${
@@ -57,15 +77,29 @@ const Sidebar = () => {
                         Board Title <span className="text-red-500">*</span>
                       </label>
                       <input
+                        value={boardData.name}
+                        onChange={(e) =>
+                          setBoardData({ ...boardData, name: e.target.value })
+                        }
                         type="text"
                         className="w-full h-8 px-2 mb-2 bg-gray-700 rounded"
                       />
                       <label htmlFor="Color">Board Color</label>
                       <input
+                        value={boardData.bgcolor}
+                        onChange={(e) =>
+                          setBoardData({
+                            ...boardData,
+                            bgcolor: e.target.value,
+                          })
+                        }
                         type="color"
                         className="w-full h-8 px-2 mb-2 bg-gray-700 rounded"
                       />
-                      <button className="flex items-center justify-center w-full h-8 py-2 mt-2 bg-gray-700 rounded hover:bg-gray-500">
+                      <button
+                        onClick={() => addBoard()}
+                        className="flex items-center justify-center w-full h-8 py-2 mt-2 bg-gray-700 rounded hover:bg-gray-500"
+                      >
                         Create
                       </button>
                     </div>
@@ -79,14 +113,25 @@ const Sidebar = () => {
             </div>
           </div>
           <ul>
-            <li>
-              <button className="flex justify-start w-full px-3 py-2 text-sm align-baseline hover:bg-gray-500">
-                <span className="w-6 mr-2 bg-red-600 rounded-sm h-max">
-                  &nbsp;
-                </span>
-                <span>My Trello Board</span>
-              </button>
-            </li>
+            {allBoard.boards &&
+              allBoard.boards.map((x, i) => {
+                return (
+                  <li>
+                    <button
+                      onClick={() => setActiveboard(i)}
+                      className="flex justify-start w-full px-3 py-2 text-sm align-baseline hover:bg-gray-500"
+                    >
+                      <span
+                        className="w-6 mr-2 rounded-sm h-max"
+                        style={{ backgroundColor: `${x.bgcolor}` }}
+                      >
+                        &nbsp;
+                      </span>
+                      <span>{x.name}</span>
+                    </button>
+                  </li>
+                );
+              })}
           </ul>
         </div>
       )}
