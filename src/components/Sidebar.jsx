@@ -8,10 +8,10 @@ const Sidebar = () => {
   const blankBoard = {
     name: "",
     bgcolor: "#f60000",
-    item: [],
+    list: [],
   };
   const [boardData, setBoardData] = useState(blankBoard);
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
   const [showpop, setShowpop] = useState(false);
   const { allBoard, setAllBoard } = useContext(BoardContext);
   const setActiveboard = (i) => {
@@ -23,12 +23,14 @@ const Sidebar = () => {
     let newB = { ...allBoard };
     newB.boards.push(boardData);
     setAllBoard(newB);
+    newB.active = newB.boards.length - 1;
+    setAllBoard(newB);
     setBoardData(blankBoard);
     setShowpop(!showpop);
   };
   return (
     <div
-      className={`bg-blue-400 transition-all duration-100 flex-shrink-0 text-white h-[calc(100vh-3rem)] border-b border-b-slate-100  ${
+      className={`bg-[#172b4d] transition-all duration-100 flex-shrink-0 text-white h-[calc(100vh-3rem)] border-b border-b-slate-100  ${
         collapsed ? "w-[40px]" : "w-[260px]"
       }`}
     >
@@ -44,7 +46,7 @@ const Sidebar = () => {
       )}
       {!collapsed && (
         <div>
-          <div className="flex justify-between p-3 border-b workspace border-b-orange-200">
+          <div className="flex justify-between p-3 border-b workspace border-[#dfe1e6] ">
             <h4>Tri Hao ww</h4>
             <button
               onClick={() => setCollapsed(!collapsed)}
@@ -116,7 +118,7 @@ const Sidebar = () => {
             {allBoard.boards &&
               allBoard.boards.map((x, i) => {
                 return (
-                  <li>
+                  <li key={i}>
                     <button
                       onClick={() => setActiveboard(i)}
                       className="flex justify-start w-full px-3 py-2 text-sm align-baseline hover:bg-gray-500"

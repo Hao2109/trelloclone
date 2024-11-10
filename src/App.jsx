@@ -16,17 +16,17 @@ function App() {
           {
             id: "1",
             title: "To do",
-            items: [{ id: "cdrFt", title: "Project Description 1" }],
+            items: [{ id: "cdrFt", title: "Task 1" }],
           },
           {
             id: "2",
             title: "In Progress",
-            items: [{ id: "cdrFv", title: "Project Description 2" }],
+            items: [{ id: "cdrFv", title: "Task 2" }],
           },
           {
             id: "3",
             title: "Done",
-            items: [{ id: "cdrFb", title: "Project Description 3" }],
+            items: [{ id: "cdrFb", title: "Task 3" }],
           },
         ],
       },
@@ -37,7 +37,7 @@ function App() {
     <>
       <Header />
       <BoardContext.Provider value={{ allBoard, setAllBoard }}>
-        <div className="flex">
+        <div className="flex bg-image">
           <Sidebar />
           <Main />
         </div>

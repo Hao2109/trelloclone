@@ -1,8 +1,14 @@
 body {
+  background-image: url(/assets/bgimage.jpg);
   background: #333;
   color: #b6c2cf;
   font-size: 14px;
 }
 * {
   box-sizing: border-box;
+}
+.bg-image {
+  background-image: url("~/assets/bgimage.jpg"); /* Đường dẫn tới hình ảnh */
+  background-size: cover;
+  background-position: center;
 }
