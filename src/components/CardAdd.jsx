@@ -37,7 +37,7 @@ const CardAdd = (props) => {
             <div className="flex p-1 ">
               <button
                 onClick={() => saveCard()}
-                className="px-4 py-2 mr-2 text-white rounded bg-sky-600"
+                className="px-4 py-2 mr-2 text-white bg-blue-600 rounded"
               >
                 Add Card
               </button>
