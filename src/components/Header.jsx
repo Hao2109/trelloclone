@@ -7,20 +7,20 @@ import { Bell, ChevronDown, HelpCircle, User } from "react-feather";
 
 const Header = () => {
   return (
-    <div className="text-white bg-green-400 w-100 h-[56px] p-3 border-b border-b-amber-700 flex justify-between ">
+    <div className="text-white bg-[#172b4d]  w-100 h-[56px] p-3 border-b border-[#dfe1e6] flex justify-between ">
       <div className="flex items-center justify-start ml-[24px] left">
         <button className="p-1 rounded-md hover:bg-gray-400 ">
           <IoMdApps size={22} />
         </button>
         <button className="flex items-center p-1 ml-2 space-x-1 rounded-md hover:bg-gray-400">
           <img src={trelloLogo} alt="" className=" size-5" />
-          <h3>TRELLOCLONE </h3>
+          <h2 className="font-semibold">TRELLOCLONE </h2>
         </button>
 
         {/*WorkSpace  */}
         <Menu as="div" className="relative inline-block ml-2 text-left">
           <div>
-            <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md  py-1 px-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-400">
+            <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md  py-1 px-3 text-sm  text-white  hover:bg-gray-400">
               WorkSpace
               <ChevronDown
                 aria-hidden="true"
@@ -85,7 +85,7 @@ const Header = () => {
         {/*Recent */}
         <Menu as="div" className="relative inline-block ml-2 text-left">
           <div>
-            <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md  py-1 px-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+            <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md  py-1 px-3 text-sm  text-white  hover:bg-gray-500">
               Recent
               <ChevronDown
                 aria-hidden="true"
@@ -150,7 +150,7 @@ const Header = () => {
         {/*Starred */}
         <Menu as="div" className="relative inline-block ml-2 text-left">
           <div>
-            <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md  py-1 px-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+            <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md  py-1 px-3 text-sm  text-white  hover:bg-gray-500">
               Starred
               <ChevronDown
                 aria-hidden="true"
@@ -215,7 +215,7 @@ const Header = () => {
         {/*Template */}
         <Menu as="div" className="relative inline-block ml-2 text-left">
           <div>
-            <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md  py-1 px-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+            <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md  py-1 px-3 text-sm  text-white  hover:bg-gray-500">
               Template
               <ChevronDown
                 aria-hidden="true"
@@ -296,7 +296,7 @@ const Header = () => {
         >
           <div>
             <MenuButton className="flex items-center justify-center w-full p-2 text-sm font-semibold text-gray-900 rounded-full hover:bg-gray-500 ">
-              <User size={16} />
+              <User color="white" size={16} />
             </MenuButton>
           </div>
 
