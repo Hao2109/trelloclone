@@ -38,7 +38,7 @@ const Sidebar = () => {
         <div className="relative flex justify-center">
           <button
             onClick={() => setCollapsed(!collapsed)}
-            className="absolute right-[-14px] align-bottom bg-slate-700 rounded-full top-3 hover:bg-slate-600 size-7 flex justify-center items-center"
+            className="absolute right-[-14px] align-bottom bg-slate-700 rounded-full top-3 hover:bg-[#345794] size-7 flex justify-center items-center"
           >
             <ChevronRight size={16}></ChevronRight>
           </button>
@@ -47,10 +47,10 @@ const Sidebar = () => {
       {!collapsed && (
         <div>
           <div className="flex justify-between p-3 border-b workspace border-[#dfe1e6] ">
-            <h4>Tri Hao ww</h4>
+            <h4>Tri Hao WWW</h4>
             <button
               onClick={() => setCollapsed(!collapsed)}
-              className="rounded-sm hover:bg-slate-600"
+              className="p-1 rounded hover:bg-[#345794]"
             >
               <ChevronLeft size={18}></ChevronLeft>
             </button>
@@ -66,7 +66,7 @@ const Sidebar = () => {
                   <div className="flex flex-col items-center justify-center p-2 ml-3 bg-gray-600 rounded w-60">
                     <button
                       onClick={() => setShowpop(!showpop)}
-                      className="absolute p-1 rounded right-2 top-2 hover:bg-gray-500"
+                      className="absolute p-1 rounded right-2 top-2 hover:bg-[#345794]"
                     >
                       <X size={16} />
                     </button>
@@ -100,7 +100,7 @@ const Sidebar = () => {
                       />
                       <button
                         onClick={() => addBoard()}
-                        className="flex items-center justify-center w-full h-8 py-2 mt-2 bg-gray-700 rounded hover:bg-gray-500"
+                        className="flex items-center justify-center w-full h-8 py-2 mt-2 bg-gray-700 rounded hover:bg-[#345794]"
                       >
                         Create
                       </button>
@@ -108,7 +108,10 @@ const Sidebar = () => {
                   </div>
                 }
               >
-                <button onClick={() => setShowpop(!showpop)}>
+                <button
+                  className="hover:bg-[#345794] rounded p-1"
+                  onClick={() => setShowpop(!showpop)}
+                >
                   <Plus size={16} />
                 </button>
               </Popover>
@@ -121,7 +124,7 @@ const Sidebar = () => {
                   <li key={i}>
                     <button
                       onClick={() => setActiveboard(i)}
-                      className="flex justify-start w-full px-3 py-2 text-sm align-baseline hover:bg-gray-500"
+                      className="flex justify-start w-full px-3 py-2 text-sm align-baseline hover:bg-[#345794]"
                     >
                       <span
                         className="w-6 mr-2 rounded-sm h-max"

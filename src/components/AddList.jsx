@@ -39,7 +39,7 @@ const AddList = (props) => {
                 onClick={() => savelist()}
                 className="px-4 py-2 mr-2 text-white rounded bg-sky-600"
               >
-                Add Card
+                Add List
               </button>
               <button
                 onClick={() => closeBtn()}
